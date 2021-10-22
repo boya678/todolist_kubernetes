@@ -20,7 +20,7 @@ spec:
         app.kubernetes.io/name: app-2048
     spec:
       containers:
-      - image: alexwhen/docker-2048
+      - image: alexwhen/docker-2048:latest
         imagePullPolicy: Always
         name: app-2048
         ports:
@@ -50,9 +50,10 @@ metadata:
     nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
   rules:
-    - http:
+    - host: 2048.t-evolvers.com
+      http:
         paths:
-          - path: /*
+          - path: /
             pathType: Prefix
             backend:
               service: 
